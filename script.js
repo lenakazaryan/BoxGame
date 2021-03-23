@@ -1,15 +1,15 @@
-let gameBox = document.querySelector(".gameBox");
-let box = document.querySelector(".box");
+const gameBox = document.querySelector(".gameBox");
+const box = document.querySelector(".box");
+const container = document.querySelector(".container");
+const startButton = document.querySelector(".startButton");
+const stopButton = document.querySelector(".stop");
 let totalNum = document.querySelector(".totalNum");
 let time = document.querySelector(".time");
-let container = document.querySelector(".container");
-let startButton = document.querySelector(".startButton");
 let counter = 0;
 let total = 0;
-let stopButton = document.querySelector(".stop");
-stopButton.disabled = true;
-console.log(stopButton);
 let interval = null;
+
+stopButton.disabled = true;
 
 stopButton.onclick = function () {
   clearInterval(interval);
@@ -29,7 +29,6 @@ startButton.onclick = function () {
   interval = setInterval(changeTime, 1000);
   box.style.display = "block";
   stopButton.disabled = false;
-  total = "";
 };
 
 function changeTime() {
@@ -49,5 +48,6 @@ function changeTime() {
     clearInterval(interval);
     totalNum.innerHTML = "Your total is " + 0;
     time.innerHTML = "00";
+    location.reload();
   }
 }
